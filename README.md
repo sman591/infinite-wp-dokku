@@ -46,4 +46,13 @@ dokku ps:rebuild
 
 ## Notes
 
-None right now...
+#### Updating composer.json and composer.lock
+
+To update composer.lock, you must run Composer from the appropriate PHP version. If you don't have PHP 7 installed locally, you can use Docker.
+
+```bash
+$ docker-compose run web bash
+# once in the bash shell...
+$ cd /app
+$ composer update # or any other command
+```
