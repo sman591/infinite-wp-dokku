@@ -44,6 +44,27 @@ dokku storage:mount wp /home/stuart/storage/wp--html:/app/html
 dokku ps:rebuild
 ```
 
+#### Link a domain
+
+```bash
+dokku domains:add wp wp.example.com
+```
+
+#### Secure using Let's Encrypt (optional)
+
+```bash
+dokku config:set --no-restart wp DOKKU_LETSENCRYPT_EMAIL=example@example.com
+dokku letsencrypt wp
+```
+
+#### Setup Infinite WP
+
+1. Retrieve MySQL credentials (`dokku config wp` on your Dokku host)
+2. Visit your new domain (wp.example.com)
+3. Enter the MySQL credentials from `DATABASE_URL` (`mysql://username:password@hostname:port/database`)
+4. Finish installation
+5. When redirected back to the admin, **do not enable https**. Dokku terminates SSL before it reaches PHP (acting as a proxy), which Infinite WP's setting doesn't support. HTTPS will stll to work fine, though.
+
 ## Notes
 
 #### Updating composer.json and composer.lock
