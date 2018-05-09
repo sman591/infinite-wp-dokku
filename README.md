@@ -2,6 +2,10 @@
 
 Sets up a basic installation for Infinite WP on Dokku.
 
+* PHP 7
+* Apache
+* Files mounted via Dokku storage
+
 ## Dokku Setup
 
 #### Create resources
