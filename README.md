@@ -57,6 +57,15 @@ dokku config:set --no-restart wp DOKKU_LETSENCRYPT_EMAIL=example@example.com
 dokku letsencrypt wp
 ```
 
+#### Deploy app to Dokku
+
+*Deploy a clone of this repo to Dokku*
+
+```bash
+git remote add dokku dokku@example.com:wp
+git push dokku master
+```
+
 #### Setup Infinite WP
 
 1. Retrieve MySQL credentials (`dokku config wp` on your Dokku host)
