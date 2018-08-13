@@ -1,6 +1,6 @@
 # Infinite WP on Dokku
 
-Sets up a basic installation for [Infinite WP](https://infinitewp.com/) on Dokku.
+Sets up a basic installation for [Infinite WP](https://infinitewp.com/) on [Dokku](http://dokku.viewdocs.io/dokku/).
 
 * PHP 7
 * Apache
