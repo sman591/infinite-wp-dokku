@@ -57,6 +57,12 @@ dokku config:set --no-restart wp DOKKU_LETSENCRYPT_EMAIL=example@example.com
 dokku letsencrypt wp
 ```
 
+Then, force-disable HTTPS in `config.php` by adding `define('APP_HTTPS', 0);` somewhere in the file.
+
+```bash
+sudo vim ~/storage/wp--html/config.php
+```
+
 #### Deploy app to Dokku
 
 *Deploy a clone of this repo to Dokku*
