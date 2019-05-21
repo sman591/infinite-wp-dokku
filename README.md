@@ -2,9 +2,9 @@
 
 Sets up a basic installation for [Infinite WP](https://infinitewp.com/) on [Dokku](http://dokku.viewdocs.io/dokku/).
 
-* PHP 7
-* Apache
-* Files mounted via Dokku storage
+- PHP 7
+- Apache
+- Files mounted via Dokku storage
 
 ## Dokku Setup
 
@@ -90,7 +90,7 @@ dokku ps:restart wp
 
 #### Deploy app to Dokku
 
-*Deploy a clone of this repo to Dokku*
+_Deploy a clone of this repo to Dokku_
 
 ```bash
 git remote add dokku dokku@example.com:wp
