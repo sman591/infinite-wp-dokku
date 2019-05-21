@@ -89,6 +89,5 @@ To update composer.lock, you must run Composer from the appropriate PHP version.
 ```bash
 $ docker-compose run web bash
 # once in the bash shell...
-$ cd /app
 $ composer update # or any other command
 ```

@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 services:
   web:
     image: webdevops/php-apache:7.1
@@ -9,6 +9,7 @@ services:
     environment:
       - php.short_open_tag=On
       - WEB_DOCUMENT_ROOT=/app/html
+    working_dir: /app
   # db:
   #   image: mysql:5.6.22
   #   environment:
