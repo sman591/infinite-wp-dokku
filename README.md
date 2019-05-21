@@ -57,10 +57,35 @@ dokku config:set --no-restart wp DOKKU_LETSENCRYPT_EMAIL=example@example.com
 dokku letsencrypt wp
 ```
 
-Then, force-disable HTTPS in `config.php` by adding `define('APP_HTTPS', 0);` somewhere in the file.
+#### Fix HTTPS Support
+
+For HTTPS support, InfiniteWP assumes the app is hosted on port 443. However, because Heroku's PHP buildpack runs on port 5000, InfiniteWP will attempt to "redirect" to port 443, causing an infinite loop.
+
+To fix this, override the `$_SERVER` variables to convince InfiniteWP it's running with HTTPS.
+
+```bash
+sudo vim ~/storage/wp--html/_env.php
+```
+
+Fill the contents of this file with the following:
+
+```php
+<?php
+
+$_SERVER['HTTPS'] = 'on';
+$_SERVER['SERVER_PORT'] = '443';
+```
+
+Then, verify HTTPS is enabled in `config.php` (should be `define('APP_HTTPS', 1);`)
 
 ```bash
 sudo vim ~/storage/wp--html/config.php
+```
+
+Save & restart the app:
+
+```bash
+dokku ps:restart wp
 ```
 
 #### Deploy app to Dokku
